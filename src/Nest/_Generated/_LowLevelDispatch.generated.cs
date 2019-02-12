@@ -4602,6 +4602,30 @@ namespace Nest
 			throw InvalidDispatch("XpackSecurityInvalidateToken", p, new [] { DELETE }, "/_xpack/security/oauth2/token");
 		}
 		
+		internal TResponse XpackSecurityPutPrivilegesDispatch<TResponse>(IRequest<PutPrivilegesRequestParameters> p,SerializableData<IPutPrivilegesRequest> body) where TResponse : class, IElasticsearchResponse, new()
+		{
+			switch(p.HttpMethod)
+			{
+				case PUT:
+						return _lowLevel.XpackSecurityPutPrivileges<TResponse>(body,p.RequestParameters);
+				case POST:
+						return _lowLevel.XpackSecurityPutPrivilegesPost<TResponse>(body,p.RequestParameters);
+			}
+			throw InvalidDispatch("XpackSecurityPutPrivileges", p, new [] { PUT, POST }, "/_xpack/security/privilege/");
+		}
+		
+		internal Task<TResponse> XpackSecurityPutPrivilegesDispatchAsync<TResponse>(IRequest<PutPrivilegesRequestParameters> p,SerializableData<IPutPrivilegesRequest> body, CancellationToken ct) where TResponse : class, IElasticsearchResponse, new()
+		{
+			switch(p.HttpMethod)
+			{
+				case PUT:
+						return _lowLevel.XpackSecurityPutPrivilegesAsync<TResponse>(body,p.RequestParameters,ct);
+				case POST:
+						return _lowLevel.XpackSecurityPutPrivilegesPostAsync<TResponse>(body,p.RequestParameters,ct);
+			}
+			throw InvalidDispatch("XpackSecurityPutPrivileges", p, new [] { PUT, POST }, "/_xpack/security/privilege/");
+		}
+		
 		internal TResponse XpackSecurityPutRoleDispatch<TResponse>(IRequest<PutRoleRequestParameters> p,SerializableData<IPutRoleRequest> body) where TResponse : class, IElasticsearchResponse, new()
 		{
 			switch(p.HttpMethod)

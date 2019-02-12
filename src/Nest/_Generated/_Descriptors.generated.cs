@@ -4869,6 +4869,16 @@ namespace Nest
 		// Request parameters
 
 	}
+	///<summary>descriptor for XpackSecurityPutPrivileges <pre>TODO</pre></summary>
+	public partial class PutPrivilegesDescriptor  : RequestDescriptorBase<PutPrivilegesDescriptor,PutPrivilegesRequestParameters, IPutPrivilegesRequest>, IPutPrivilegesRequest
+	{ 
+		// values part of the url path
+
+		// Request parameters
+
+		///<summary>If `true` (the default) then refresh the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to make this operation visible to search, if `false` then do nothing with refreshes.</summary>
+		public PutPrivilegesDescriptor Refresh(Refresh? refresh) => Qs("refresh", refresh);
+	}
 	///<summary>descriptor for XpackSecurityPutRole <pre>https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-put-role.html</pre></summary>
 	public partial class PutRoleDescriptor  : RequestDescriptorBase<PutRoleDescriptor,PutRoleRequestParameters, IPutRoleRequest>, IPutRoleRequest
 	{ 

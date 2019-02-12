@@ -2646,6 +2646,16 @@ namespace Elasticsearch.Net
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
 	}
+	///<summary>Request options for XpackSecurityPutPrivileges<pre>TODO</pre></summary>
+	public partial class PutPrivilegesRequestParameters : RequestParameters<PutPrivilegesRequestParameters> 
+	{
+		public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+		///<summary>
+		/// If `true` (the default) then refresh the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh
+		/// to make this operation visible to search, if `false` then do nothing with refreshes.
+		///</summary>
+		public Refresh? Refresh { get => Q<Refresh?>("refresh"); set => Q("refresh", value); }
+	}
 	///<summary>Request options for XpackSecurityPutRole<pre>https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-put-role.html</pre></summary>
 	public partial class PutRoleRequestParameters : RequestParameters<PutRoleRequestParameters> 
 	{

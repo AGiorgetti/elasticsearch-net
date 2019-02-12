@@ -4030,6 +4030,26 @@ namespace Elasticsearch.Net
 		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
 		public Task<TResponse> XpackSecurityInvalidateTokenAsync<TResponse>(PostData body, InvalidateUserAccessTokenRequestParameters requestParameters = null, CancellationToken ctx = default(CancellationToken))
 			where TResponse : class, IElasticsearchResponse, new() => this.DoRequestAsync<TResponse>(DELETE, Url($"_xpack/security/oauth2/token"), ctx, body, _params(requestParameters));
+		///<summary>PUT on /_xpack/security/privilege/ <para>TODO</para></summary>
+		///<param name="body">The privilege(s) to add</param>
+		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
+		public TResponse XpackSecurityPutPrivileges<TResponse>(PostData body, PutPrivilegesRequestParameters requestParameters = null)
+			where TResponse : class, IElasticsearchResponse, new() => this.DoRequest<TResponse>(PUT, Url($"_xpack/security/privilege/"), body, _params(requestParameters));
+		///<summary>PUT on /_xpack/security/privilege/ <para>TODO</para></summary>
+		///<param name="body">The privilege(s) to add</param>
+		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
+		public Task<TResponse> XpackSecurityPutPrivilegesAsync<TResponse>(PostData body, PutPrivilegesRequestParameters requestParameters = null, CancellationToken ctx = default(CancellationToken))
+			where TResponse : class, IElasticsearchResponse, new() => this.DoRequestAsync<TResponse>(PUT, Url($"_xpack/security/privilege/"), ctx, body, _params(requestParameters));
+		///<summary>POST on /_xpack/security/privilege/ <para>TODO</para></summary>
+		///<param name="body">The privilege(s) to add</param>
+		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
+		public TResponse XpackSecurityPutPrivilegesPost<TResponse>(PostData body, PutPrivilegesRequestParameters requestParameters = null)
+			where TResponse : class, IElasticsearchResponse, new() => this.DoRequest<TResponse>(POST, Url($"_xpack/security/privilege/"), body, _params(requestParameters));
+		///<summary>POST on /_xpack/security/privilege/ <para>TODO</para></summary>
+		///<param name="body">The privilege(s) to add</param>
+		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
+		public Task<TResponse> XpackSecurityPutPrivilegesPostAsync<TResponse>(PostData body, PutPrivilegesRequestParameters requestParameters = null, CancellationToken ctx = default(CancellationToken))
+			where TResponse : class, IElasticsearchResponse, new() => this.DoRequestAsync<TResponse>(POST, Url($"_xpack/security/privilege/"), ctx, body, _params(requestParameters));
 		///<summary>PUT on /_xpack/security/role/{name} <para>https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-put-role.html</para></summary>
 		///<param name="name">Role name</param>
 		///<param name="body">The role to add</param>

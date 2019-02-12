@@ -48,8 +48,6 @@ namespace ApiGenerator
 			"xpack.security.get_user_privileges.json",
 			"xpack.security.get_index_privileges.json",
 			"xpack.security.has_privileges.json",
-			"xpack.security.put_privilege.json",
-			"xpack.security.put_privileges.json",
 		};
 
 		public static void Generate(string downloadBranch, params string[] folders)

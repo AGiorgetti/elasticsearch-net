@@ -2673,18 +2673,6 @@ namespace Nest
 		// Request parameters
 	}
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
-	public partial interface IGetBasicLicenseStatusRequest : IRequest<GetBasicLicenseStatusRequestParameters>
-	{
-	}
-	///<summary>Request parameters for XpackLicenseGetBasicStatus <pre>https://www.elastic.co/guide/en/x-pack/current/license-management.html</pre></summary>
-	public partial class GetBasicLicenseStatusRequest : PlainRequestBase<GetBasicLicenseStatusRequestParameters>, IGetBasicLicenseStatusRequest
-	{
-		protected IGetBasicLicenseStatusRequest Self => this;
-		// values part of the url path
-
-		// Request parameters
-	}
-	[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
 	public partial interface IGetAutoFollowPatternRequest : IRequest<GetAutoFollowPatternRequestParameters>
 	{
 		Name Name { get; }
@@ -2700,6 +2688,18 @@ namespace Nest
 		public GetAutoFollowPatternRequest(Name name) : base(r=>r.Optional("name", name)){}
 		// values part of the url path
 		Name IGetAutoFollowPatternRequest.Name => Self.RouteValues.Get<Name>("name");
+
+		// Request parameters
+	}
+	[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
+	public partial interface IGetBasicLicenseStatusRequest : IRequest<GetBasicLicenseStatusRequestParameters>
+	{
+	}
+	///<summary>Request parameters for XpackLicenseGetBasicStatus <pre>https://www.elastic.co/guide/en/x-pack/current/license-management.html</pre></summary>
+	public partial class GetBasicLicenseStatusRequest : PlainRequestBase<GetBasicLicenseStatusRequestParameters>, IGetBasicLicenseStatusRequest
+	{
+		protected IGetBasicLicenseStatusRequest Self => this;
+		// values part of the url path
 
 		// Request parameters
 	}
@@ -4458,6 +4458,23 @@ namespace Nest
 		public Time MasterTimeout { get => Q<Time>("master_timeout"); set => Q("master_timeout", value); }
 		///<summary>Explicit operation timeout</summary>
 		public Time Timeout { get => Q<Time>("timeout"); set => Q("timeout", value); }
+	}
+	[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
+	public partial interface IPutPrivilegesRequest : IRequest<PutPrivilegesRequestParameters>
+	{
+	}
+	///<summary>Request parameters for XpackSecurityPutPrivileges <pre>TODO</pre></summary>
+	public partial class PutPrivilegesRequest : PlainRequestBase<PutPrivilegesRequestParameters>, IPutPrivilegesRequest
+	{
+		protected IPutPrivilegesRequest Self => this;
+		// values part of the url path
+
+		// Request parameters
+		///<summary>
+		/// If `true` (the default) then refresh the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh
+		/// to make this operation visible to search, if `false` then do nothing with refreshes.
+		///</summary>
+		public Refresh? Refresh { get => Q<Refresh?>("refresh"); set => Q("refresh", value); }
 	}
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
 	public partial interface IPutRoleMappingRequest : IRequest<PutRoleMappingRequestParameters>
